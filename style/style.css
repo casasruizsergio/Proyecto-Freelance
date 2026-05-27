@@ -1,4 +1,4 @@
-:root {
+:root { /*.root afecta a la totalidad del documento. Aplicamos este comando para definir atributos personalizados*/
   --blanco:#ffffff;
   --oscuro:#212121;
   --primario:#ffc107;
@@ -7,44 +7,86 @@
 }
 
 html {
-  font-size: 62.5%;
-}
+  font-size: 62.5%; /*esta medida nos permite saber que 1rem = 10px, asi podemos calcular cuanto ocupa un elemento en el siteweb con esta equivalencia*/
+  box-sizing: border-box;
+  }
+
+  *,*:before, *:after {
+    box-sizing: inherit;
+  }
+
 
 body {
-  font-size: 16px;/*1rem = 10px*/
+  font-size: 1.6rem;/*16px*/
   font-family:"Alfa Slab One", Arial, Helvetica, sans-serif;
 }
 .titulo {
   text-align: center;
-  font-size: 3.8rem;
+  font-size: 3.8rem; /*38px*/
   color: var(--secundario);
   }
 
 
 .titulo span {
-  font-size: 2rem;
+  font-size: 2rem;/*20px*/
   color: var(--primario);
 }
 
 .navegacion-principal {
   background-color: var(--primario);
-  padding: 1rem;
+  flex-direction: column;
+  display: flex; /*activamos Flexbox para la organizacion del navegador*/
+ 
+}
+@media (min-width: 768px) {
+  .navegacion-principal {
+    flex-direction: row;
+    justify-content: space-between;/*aplicamos espaciado entre elementos del navegador*/
+  
+  }
 }
 .navegacion-principal a{
+  display: block;
+  text-align: center;
   color: var(--blanco);
-  text-decoration: none;
-  
+  text-decoration: none;/*elimina el subrayado de los enlaces*/  
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1rem;/*10px*/
 }
-
-.contenedor {
-  width: 60rem;
-  margin: 0 auto;
- }
-
 .nav-bg {
    background-color:var(--secundario);
 }
 
-p{
- 
+.contenedor {
+  max-width: 60rem;/*600px*/
+  margin: 0 auto;/*al poner dos digitos, el sistema detecta que el primero ocupa el vector vertical (up & down) y el segundo el vector horizontal (left & right)*/
+ }
+.navegacion-principal a:hover{
+  background-color: var(--secundario);
+  color: var(--oscuro);
+}
+/*Media Query. Aplica cambios en el diseño para hacerlo responsive. 
+480px = equivalencia a pantalla de movil
+768px = equivalencia a pantalla de tablet
+1140px = equivalencia a pantalla PC
+1440px = standard en frameworks */
+
+/*@media (min-width: 480px) {
+  body {
+    background-color: chocolate;
+  }
+}
+@media (min-width: 768px) {
+  body {
+    background-color: rgb(235, 8, 121);
+  }
+}*/
+
+.hero {
+  background-image: url(../img/hero.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+  padding: 20px;
 }
