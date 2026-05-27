@@ -4,6 +4,8 @@
   --primario:#ffc107;
   --secundario:#0097a7;
   --gris:#757575;
+  --grisclaro: #DFE9F3;
+
 }
 
 html {
@@ -19,6 +21,7 @@ html {
 body {
   font-size: 1.6rem;/*16px*/
   font-family:"Alfa Slab One", Arial, Helvetica, sans-serif;
+  background-image: linear-gradient(to top, var(--grisclaro) 0%, var(--blanco)100%); /*Generamos un degradado de abajo a arriba empezando en gris claro y terminando en blanco*/
 }
 
 h1{
@@ -78,6 +81,27 @@ h1,h2,h3{
   max-width: 60rem;/*600px*/
   margin: 0 auto;/*al poner dos digitos, el sistema detecta que el primero ocupa el vector vertical (up & down) y el segundo el vector horizontal (left & right)*/
  }
+ .boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 2rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: normal;
+    border-radius: 1rem;
+    width: 90%;
+    text-align: center;
+    
+ }
+
+ @media (min-width:480px) {
+    .boton {
+      width: auto;
+    }
+ }
+
 .navegacion-principal a:hover{
   background-color: var(--secundario);
   color: var(--oscuro);
@@ -104,6 +128,7 @@ h1,h2,h3{
   background-repeat: no-repeat;
   background-size: cover;
   height: 450px;
+  margin-bottom: 2rem;
   /*padding: 20px;*/
   position: relative; /*en el atributo PADRE, se debe colocar siempre posicion Relativa, asi el hijo puede colocarse en posicion absoluta*/
 }
@@ -135,4 +160,26 @@ h1,h2,h3{
 .ubicacion {
   display: flex;
   align-items: flex-end
+}
+.sombra{ /*cssmatic*/
+-webkit-box-shadow: inset 0px 5px 15px 0px rgba(69,65,69,1);
+-moz-box-shadow: inset 0px 5px 15px 0px rgba(69,65,69,1);
+box-shadow: inset 0px 5px 15px 0px rgba(69,65,69,1);
+background-color: var(--blanco);
+padding: 2rem;
+border-radius: 2rem;
+}
+/*CSS Grid*/
+@media (min-width: 768px) {
+.servicios {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  /*grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: 33.3% 33.3% 33.3%;  Son 3 equivalencias para dividir 3 columnas en partes iguales*/
+  
+  grid-template-rows: 200px 800px;
+
+  /*grid: 200px 800px/ 300px 300px; sintaxis para editar en una linea tanto rows como columns*/
+  }
 }
